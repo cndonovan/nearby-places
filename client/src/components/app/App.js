@@ -4,15 +4,21 @@ import ResultRow from "components/result-row/ResultRow";
 import "index.css";
 
 function App() {
-  const [responseData, setResponseData] = useState([]);
-  console.log({ responseData });
+  const [results, setResults] = useState([]);
+  console.log({ results });
   return (
     <div>
       <header className="header">
-        <p className="pageWidth">Nearby places</p>
+        <h1 className="pageWidth">Nearby places</h1>
       </header>
-      <Form setResponseData={setResponseData} />
-      <ResultRow />
+      <div className="pageWidth">
+        <Form setResults={setResults} />
+        <h2>Results</h2>
+        {results.map((result) => {
+          console.log({ result });
+          return <ResultRow key={result.place_id} result={result} />;
+        })}
+      </div>
     </div>
   );
 }

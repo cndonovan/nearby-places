@@ -6,7 +6,7 @@ import "index.css";
 const initialLocationName = "Malibu, CA";
 const initialLocation = LOCATIONS.find((l) => l.name === initialLocationName);
 
-function Form({ setResponseData }) {
+function Form({ setResults }) {
   const [location, setLocation] = useState(initialLocation);
   const [keyword, setKeyword] = useState("");
 
@@ -15,7 +15,7 @@ function Form({ setResponseData }) {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const data = await fetch("/api/nearby-places", {
+      const response = await fetch("/api/nearby-places", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,15 +26,16 @@ function Form({ setResponseData }) {
           long: location.long,
         }),
       });
-
-      setResponseData(data.results);
+      const body = await response.json();
+      console.log({ body });
+      setResults(body.results || []);
     } catch (err) {
       console.error(err);
     }
   };
 
   return (
-    <form className="pageWidth">
+    <form>
       <h2>Select a location</h2>
       {LOCATIONS.map((currentLocation) => {
         const { id, name } = currentLocation;
