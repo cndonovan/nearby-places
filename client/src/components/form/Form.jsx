@@ -6,7 +6,7 @@ import "index.css";
 const initialLocationName = "Malibu, CA";
 const initialLocation = LOCATIONS.find((l) => l.name === initialLocationName);
 
-function Form({ setResults }) {
+function Form({ setNearbyPlaces }) {
   const [location, setLocation] = useState(initialLocation);
   const [keyword, setKeyword] = useState("");
 
@@ -25,7 +25,7 @@ function Form({ setResults }) {
         }),
       });
       const body = await response.json();
-      setResults(body.results || []);
+      setNearbyPlaces(body.results || []);
     } catch (err) {
       console.error(err);
     }
@@ -49,7 +49,6 @@ function Form({ setResults }) {
           </div>
         );
       })}
-
       <h2>Search</h2>
       <input
         type="text"
