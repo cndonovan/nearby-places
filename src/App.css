@@ -1,19 +1,13 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
+/* Component classes (i.e. classes that correspond to a component) */
+.header {
+  font-size: 2em;
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  padding: 12px 8px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Utility classes (i.e. classes that achieve an effect, can be used by different components) */
+.pageWidth {
+  max-width: 1040px;
+  margin: 0 auto;
 }
-
