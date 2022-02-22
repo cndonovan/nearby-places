@@ -5,7 +5,6 @@ import "index.css";
 
 function App() {
   const [results, setResults] = useState([]);
-  console.log({ results });
   return (
     <div>
       <header className="header">
@@ -15,7 +14,6 @@ function App() {
         <Form setResults={setResults} />
         <h2>Results</h2>
         {results.map((result) => {
-          console.log({ result });
           return <ResultRow key={result.place_id} result={result} />;
         })}
       </div>

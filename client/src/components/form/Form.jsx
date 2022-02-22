@@ -10,8 +10,6 @@ function Form({ setResults }) {
   const [location, setLocation] = useState(initialLocation);
   const [keyword, setKeyword] = useState("");
 
-  console.log({ location, keyword });
-
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -27,7 +25,6 @@ function Form({ setResults }) {
         }),
       });
       const body = await response.json();
-      console.log({ body });
       setResults(body.results || []);
     } catch (err) {
       console.error(err);
