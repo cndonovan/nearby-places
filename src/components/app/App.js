@@ -1,7 +1,6 @@
-import Form from 'components/form/Form.jsx'
-import ResultRow from 'components/result-row/ResultRow'
-import 'index.css';
-
+import Form from "components/form/Form.jsx";
+import ResultRow from "components/result-row/ResultRow";
+import "index.css";
 
 function App() {
   return (
